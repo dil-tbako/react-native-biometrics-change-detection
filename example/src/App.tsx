@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-biometrics-change-detection';
+import { biometricsChanged } from 'react-native-biometrics-change-detection';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [result, setResult] = React.useState<string | undefined>();
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    biometricsChanged((value: any) => setResult(value.toString()));
   }, []);
 
   return (

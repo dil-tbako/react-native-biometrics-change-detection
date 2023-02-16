@@ -1,7 +1,7 @@
 import { NativeModules, Platform } from 'react-native';
 
 const LINKING_ERROR =
-  `The package 'react-native-biometrics-change-detection' doesn't seem to be linked. Make sure: \n\n` +
+  `The package 'react-native-biometrics-changed' doesn't seem to be linked. Make sure: \n\n` +
   Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
@@ -17,6 +17,6 @@ const BiometricsChangeDetection = NativeModules.BiometricsChangeDetection
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return BiometricsChangeDetection.multiply(a, b);
+export function biometricsChanged(cb: any): Promise<number> {
+  return BiometricsChangeDetection.biometricsChanged(cb);
 }
