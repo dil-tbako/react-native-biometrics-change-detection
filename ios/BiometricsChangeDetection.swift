@@ -36,4 +36,26 @@ class BiometricsChangeDetection: NSObject {
        callback([false])
        return
   }
+
+  @objc
+  func saveBiometricState() {
+      let context = LAContext()
+      var error: NSError?
+      context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+
+      if error == nil {
+        LAContext.savedBiometricsPolicyState = context.evaluatedPolicyDomainState
+      }
+  }
+
+  @objc
+  func resetBiometricState() {
+      let context = LAContext()
+      var error: NSError?
+      context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+
+      if error == nil {
+        LAContext.savedBiometricsPolicyState = nil;
+      }
+  }
 }

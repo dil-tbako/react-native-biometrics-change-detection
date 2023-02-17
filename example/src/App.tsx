@@ -1,7 +1,11 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { biometricsChanged } from 'react-native-biometrics-change-detection';
+import { StyleSheet, View, Text, Button } from 'react-native';
+import {
+  biometricsChanged,
+  saveBiometricState,
+  resetBiometricState,
+} from 'react-native-biometrics-change-detection';
 
 export default function App() {
   const [result, setResult] = React.useState<string | undefined>();
@@ -13,6 +17,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Result: {result}</Text>
+      <Button onPress={saveBiometricState} title={'Save biometric state'} />
+      <Button onPress={resetBiometricState} title={'Reset biometric state'} />
     </View>
   );
 }

@@ -17,6 +17,14 @@ const BiometricsChangeDetection = NativeModules.BiometricsChangeDetection
       }
     );
 
-export function biometricsChanged(cb: any): Promise<number> {
+export function biometricsChanged(cb: any) {
   return BiometricsChangeDetection.biometricsChanged(cb);
+}
+
+export function saveBiometricState() {
+  BiometricsChangeDetection.saveBiometricState();
+}
+
+export function resetBiometricState() {
+  BiometricsChangeDetection.resetBiometricState();
 }

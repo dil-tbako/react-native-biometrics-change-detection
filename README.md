@@ -16,7 +16,17 @@ import { biometricsChanged } from 'react-native-biometrics-change-detection';
 
 // ...
 
-biometricsChanged((callbackValue) => doSomething(callbackValue));
+biometricsChanged((isNewDataAdded) => {
+  if (isNewDataAdded) {
+    if (isNewDataAllowedToBeAdded) {
+      //This function adds the new data to the library state
+      saveBiometricState();
+    } else {
+      //This function resets the state of the library
+      resetBiometricState();
+    }
+  }
+});
 ```
 
 ## Contributing
