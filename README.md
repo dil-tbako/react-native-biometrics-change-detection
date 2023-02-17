@@ -1,6 +1,7 @@
 # react-native-biometrics-change-detection
 
-Something
+(IOS only for now)
+This package helps to determine if biometric data has been added or removed.
 
 ## Installation
 
@@ -11,11 +12,11 @@ npm install react-native-biometrics-change-detection
 ## Usage
 
 ```js
-import { multiply } from 'react-native-biometrics-change-detection';
+import { biometricsChanged } from 'react-native-biometrics-change-detection';
 
 // ...
 
-const result = await multiply(3, 7);
+biometricsChanged((callbackValue) => doSomething(callbackValue));
 ```
 
 ## Contributing

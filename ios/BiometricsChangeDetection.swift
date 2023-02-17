@@ -25,12 +25,15 @@ class BiometricsChangeDetection: NSObject {
       if error == nil && LAContext.savedBiometricsPolicyState == nil {
           LAContext.savedBiometricsPolicyState = context.evaluatedPolicyDomainState
            callback([false])
+           return
       }
       
       if let domainState = context.evaluatedPolicyDomainState, domainState != LAContext.savedBiometricsPolicyState {
           callback([true])
+          return
       }
       
        callback([false])
+       return
   }
 }
